@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ( 7 -gt 8 )
+then
+echo "high"
+else
+echo "low"
+fi
