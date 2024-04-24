@@ -1,0 +1,25 @@
+pipeline{
+  agent any
+  stages{
+    stage("code"){
+      steps{
+        echo "Step1: the code is fetched from GitHub"
+        git url: ".git" , branch: "master"
+      }
+    }
+
+    stage("build"){
+      steps{
+        echo "build using dockerfile"
+      }
+    }
+
+    stage("deploy"){
+      steps{
+        echo "deploy to prod"
+        withCredentials(   (usernamePassword(crdentialsId:"DockerHubCreds",passwordVariable:"dockerpass",usernamevariable:"dockerhubuser")
+      }
+    }
+  }
+  
+      
