@@ -1,0 +1,16 @@
+uses: reusability of the code
+stuctured code and lessy messy code
+error can be tracked easily
+
+create a var folder in your git repo and create a grrovy file may be called helloWorld.groovy and define your shared lib there
+def helloworld(){
+sh "hello to you"
+
+Go to Jenkins-- configure system--> global pipeline linraries
+go to pipeline-->add @Library("mysharedlibrary")
+
+use the filename as a function wherever needed
+eg: stage(build){
+helloworld()
+}
+this will print hello to you
