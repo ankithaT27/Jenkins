@@ -1,0 +1,5 @@
+master-slave appeoach is not always good as a lot of resources are wasted. 
+we can configure autoscaling group but there is a good approach here, so use docker as agents, so run the pipeline on a docker container
+So usage od agents reduces operational overhead and costs
+(usermod -aG docker jenkins)
+Install docker pipeline plugin on jenkins
