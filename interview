@@ -1,0 +1,12 @@
+Jenkins offers two options for determining when builds should be discarded:
+*Build age: discard builds when they reach a certain age; for example, seven days old.
+*Build count: discard the oldest build when a certain number of builds already exist.
+
+
+Enforces a minimum time between builds based on the desired maximum rate.
+Throttle build
+
+Build trigger
+*other peojects
+*periodically
+*github
