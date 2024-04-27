@@ -10,3 +10,99 @@ Build trigger
 *other peojects
 *periodically
 *github
+
+workspaces: /var/lib/jenkins/workspace/Test
+Duplicate stage name: "Git checkout" @ line 4, column 5. (2 stages name cannot be the same)
+
+
+parallel:
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Building the application"'
+                // Add commands to build application
+            }
+        }
+        stage('Test') {
+            parallel {
+                stage('Unit Tests') {
+                    steps {
+                        sh 'sleep 5s'
+                        sh 'echo "Running unit tests"'
+                        // Add commands to run unit tests
+                    }
+                }
+                stage('Integration Tests') {
+                    steps {
+                        sh 'echo "Running integration tests"'
+                        // Add commands to run integration tests
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying the application"'
+                // Add commands to deploy application
+            }
+        }
+    }
+}
+
+
+
+ post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
+}
+
+
+when we want so add some condition inside a stage we use: when attribute
+
+stage('build'){
+when{
+experssion{
+BRANCH_NAME==dev
+}
+}
+
+get a list of env varibles:
+https:ip:8080/env-vars.html
+most common env: BUILD_ID, BRANCH_NAME
+
+YOU can also create your own env by using env block
+env{
+VERSION=1.0
+}
+
+this can ve used inside any stage/block of the code as an env variable:
+${VERSION}
+
+credentials & credentials binding plugins
+
+
+define tools:
+
+tools{
+maven 'Maven'
+gradle
+}
+
+THis has to be configured in global tools config as well!!
+
+
+
+
+*******************************************************************
+chatgtpt:
+User
+"Imagine you've configured a Jenkins job to build a Java application. One morning, you find that the build has failed without any code changes from the previous successful build. What steps would you take to diagnose and resolve the issue?"
+
+
+efficinency
+. Use Lightweight Executors
+Configure Lightweight Executors: For simple, fast-running jobs, consider using lightweight executors that consume fewer resources.
