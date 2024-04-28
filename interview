@@ -106,3 +106,8 @@ User
 efficinency
 . Use Lightweight Executors
 Configure Lightweight Executors: For simple, fast-running jobs, consider using lightweight executors that consume fewer resources.
+
+Different build trigger:
+SCM polling: jenkins checks git every min/hour for any chnages
+periodic build:
+Github hook trigger: configure webhooks that triggers a build when we push 
