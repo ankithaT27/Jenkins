@@ -1,0 +1,28 @@
+pipeline{
+    agent any
+    stages{
+        stage('parallel'){
+            parallel{
+            
+        
+        stage('checkout'){
+            steps{
+                git url: "https://github.com/ankithaT27/Jenkins.git", branch: "mybranch"
+            }
+        }
+        
+        stage('checkout2'){
+            steps{
+                dir('myfolder'){
+                git url: "https://github.com/ankithaT27/Interview.git", branch: "master"
+                               }
+            }
+        }
+    }
+}
+
+}
+
+
+
+}
