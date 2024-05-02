@@ -6,6 +6,7 @@
                 sh 'docker rm -f $(docker ps -aq)'
                 sh 'docker rmi -f $(docker images -aq)'
                 sh "docker run -it -d --name mypython python "
+                sh "docker tag nginx ankitha2798/nginx:${BUILD_ID}"
             }
         }
   }
