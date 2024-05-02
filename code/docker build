@@ -1,0 +1,11 @@
+  stages {
+        stage('Hello') {
+            steps {
+                sh "docker --version"
+                sh "docker pull python"
+                sh 'docker rm -f $(docker ps -aq)'
+                sh 'docker rmi -f $(docker images -aq)'
+                sh "docker run -it -d --name mypython python "
+            }
+        }
+  }
